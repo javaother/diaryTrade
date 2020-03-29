@@ -1,3 +1,7 @@
+package fxController;
+
+import dao.StockDAOImpl;
+
 public class MainController {
 
     public MainController(){
@@ -14,7 +18,8 @@ public class MainController {
     }
 
     public void openDirStock() {
-        System.out.println("Button open STOCK");
+        StockDAOImpl t = new StockDAOImpl();
+        t.readStock();
     }
 
     public void operQUIK() {

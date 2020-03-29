@@ -10,8 +10,9 @@ public class Stock {
     @Column(name = "stk_ticker")
     String ticker;
 
-    @ManyToOne
-    @JoinColumn(name = "stk_esid")
+    //@ManyToOne
+    //@JoinColumn(name = "stk_esid")
+    @Column(name = "stk_esid")
     int sector;
 
     @Column(name = "stk_name")
