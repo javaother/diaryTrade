@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="300.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainController">
+   <children>
+      <Separator layoutX="297.0" layoutY="4.0" orientation="VERTICAL" prefHeight="391.0" prefWidth="0.0" />
+      <Button id="oper_quik" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#operQUIK" prefHeight="31.0" prefWidth="275.0" text="Разнести  из QUIK" />
+      <Button id="doc_open" layoutX="14.0" layoutY="53.0" mnemonicParsing="false" onAction="#docOpen" prefHeight="31.0" prefWidth="275.0" text="Открыть операцию" />
+      <Button id="doc_close" layoutX="14.0" layoutY="93.0" mnemonicParsing="false" onAction="#docClose" prefHeight="31.0" prefWidth="275.0" text="Закрыть операцию" />
+      <Button id="dir_indeces" layoutX="303.0" layoutY="14.0" mnemonicParsing="false" onAction="#openDirIndeces" prefHeight="31.0" prefWidth="290.0" text="Индексы" />
+      <Button id="dir_stock" layoutX="303.0" layoutY="53.0" mnemonicParsing="false" onAction="#openDirStock" prefHeight="31.0" prefWidth="290.0" text="Акции" />
+      <Button id="rep_priceChange" layoutX="303.0" layoutY="93.0" mnemonicParsing="false" onAction="#reportPriceChange" prefHeight="31.0" prefWidth="290.0" text="Отчет по изменениям цен" />
+   </children>
+</AnchorPane>
