@@ -4,7 +4,7 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="300.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainController">
+<AnchorPane prefHeight="300.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxController.MainController">
    <children>
       <Separator layoutX="297.0" layoutY="4.0" orientation="VERTICAL" prefHeight="391.0" prefWidth="0.0" />
       <Button id="oper_quik" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#operQUIK" prefHeight="31.0" prefWidth="275.0" text="Разнести  из QUIK" />
