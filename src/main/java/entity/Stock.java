@@ -1,6 +1,7 @@
 package entity;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.Date;
 
 @Entity
@@ -8,14 +9,16 @@ import java.util.Date;
 public class Stock {
 
     @Id
-    @OneToMany
+    /*@OneToMany(mappedBy = "stock", fetch=FetchType.EAGER)
+    @JoinColumn(name = "stk_ticker")*/
     @Column(name = "stk_ticker")
-    String ticker;
+    int ticker;
 
     @ManyToOne
+    //@OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "stk_esid")
     //@Column(name = "stk_esid")
-    int sector;
+    Economic_sector sector;
 
     @Column(name = "stk_name")
     String name;
@@ -29,5 +32,15 @@ public class Stock {
 
     public String getStock() {
         return ticker + " - " + name;
+    }
+
+    @Override
+    public String toString() {
+        return "Stock{" +
+                "ticker=" + ticker +
+                ", sector=" + sector +
+                ", name='" + name + '\'' +
+                ", dateCreate=" + dateCreate +
+                '}';
     }
 }

@@ -1,5 +1,6 @@
 package utils;
 
+import entity.Economic_sector;
 import entity.Stock;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -14,8 +15,10 @@ public class HibernateSessionFactoryUtil {
         if (sessionFactory == null) {
             try {
                 Configuration configuration = new Configuration().configure();
+                //
                 configuration.addAnnotatedClass(Stock.class);
-                //configuration.addAnnotatedClass(Auto.class);
+                configuration.addAnnotatedClass(Economic_sector.class);
+                //
                 StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
                 sessionFactory = configuration.buildSessionFactory(builder.build());
 
