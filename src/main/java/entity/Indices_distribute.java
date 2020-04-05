@@ -2,14 +2,15 @@ package entity;
 
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name="indices_distribute")
 public class Indices_distribute {
 
     @Id
-    @OneToMany
     @Column(name="idxdi_id")
     int id;
 
@@ -18,6 +19,9 @@ public class Indices_distribute {
 
     @Column(name="idxdi_number")
     String number;
+
+    @OneToMany (mappedBy = "docid")
+    List<Indices_price> prices = new ArrayList<Indices_price>();
 
     public Indices_distribute(){
 

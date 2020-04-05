@@ -1,16 +1,17 @@
 package entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Table(name = "indices_price")
-public class Indices_price {
+public class Indices_price implements Serializable{
 
     @Id
     @ManyToOne
     @JoinColumn(name="index_indexprice")
-    String index;
+    Indices index;
 
     @Id
     @Column(name="date_indexprice")
@@ -24,7 +25,7 @@ public class Indices_price {
 
     @ManyToOne
     @JoinColumn(name="docid_indexprice")
-    int docid;
+    Indices_distribute docid;
 
 
     public Indices_price(){

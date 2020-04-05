@@ -1,13 +1,16 @@
 package entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="indicator")
-public class Indicator {
+@Embeddable
+public class Indicator implements Serializable {
 
     @Id
-    @OneToMany
     @Column(name="id_indicator")
     int id;
 
@@ -19,6 +22,9 @@ public class Indicator {
 
     @Column(name="purpose_indicator")
     String purpose;
+
+    @OneToMany (mappedBy = "id_indicator")
+    List<Indicator_data> indicator_data = new ArrayList<Indicator_data>();
 
     public Indicator(){
 
