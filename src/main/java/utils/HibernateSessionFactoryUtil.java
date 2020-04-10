@@ -1,5 +1,6 @@
 package utils;
 
+
 import entity.*;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;

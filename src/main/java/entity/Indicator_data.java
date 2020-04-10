@@ -8,7 +8,7 @@ import java.util.Date;
 @Table(name="indicator_data")
 public class Indicator_data implements Serializable {
 
-    @EmbeddedId
+    @Id
     @ManyToOne
     @JoinColumn(name="id_indata")
     Indicator id_indicator;
