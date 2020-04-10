@@ -1,16 +1,17 @@
 package entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Table(name="stock_price")
-public class Stock_price {
+public class Stock_price implements Serializable {
 
     @Id
     @ManyToOne
     @JoinColumn(name = "stock")
-    String stock;
+    Stock stock;
 
     @Id
     @Column(name = "date")
@@ -24,7 +25,7 @@ public class Stock_price {
 
     @ManyToOne
     @JoinColumn(name = "docid_stkpr")
-    int docid;
+    Stock_distribute docid;
 
     public Stock_price(){
 
