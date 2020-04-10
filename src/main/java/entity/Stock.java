@@ -1,17 +1,18 @@
 package entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 @Entity
 @Table(name = "stock")
-public class Stock {
+public class Stock implements Serializable{
 
     @Id
     @Column(name = "stk_ticker")
-    private int ticker;
+    private String ticker;
 
     @Column(name = "stk_name")
     private String name;

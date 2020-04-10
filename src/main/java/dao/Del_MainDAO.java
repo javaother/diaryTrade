@@ -1,9 +1,9 @@
 package dao;
 
-public interface MainDAO {
+interface Del_MainDAO {
 
     boolean createRecord();
     boolean deleteRecord();
-    void searchRecordByKey();
+    <T, V> T searchRecordByKey(V v);
     void getAll();
 }

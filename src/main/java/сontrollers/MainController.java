@@ -1,6 +1,8 @@
 package сontrollers;
 
-import dao.StockDAOImpl;
+import dao.impl.StockDAOImpl;
+import entity.Stock;
+import services.StockService;
 
 public class MainController {
 
@@ -18,8 +20,13 @@ public class MainController {
     }
 
     public void openDirStock() {
-        StockDAOImpl t = new StockDAOImpl();
-        t.readStock();
+        StockService stockService = new StockService();
+        Stock stock = new Stock();
+        stock = stockService.searchStockByTicker("SBER");
+        System.out.println(stock.toString());
+
+        /*StockDAOImpl t = new StockDAOImpl();
+        t.readStock();*/
     }
 
     public void operQUIK() {
