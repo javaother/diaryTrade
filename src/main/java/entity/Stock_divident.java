@@ -18,7 +18,7 @@ public class Stock_divident {
 
     @ManyToOne
     @JoinColumn(name="divs_stock")
-    String stock;
+    Stock stock;
 
     public Stock_divident(){
 

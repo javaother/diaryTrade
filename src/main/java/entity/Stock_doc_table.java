@@ -1,10 +1,11 @@
 package entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name="stock_doc_table")
-public class Stock_doc_table {
+public class Stock_doc_table implements Serializable {
 
     @Id
     @Column(name="stkpd_id")
@@ -13,7 +14,7 @@ public class Stock_doc_table {
     @Id
     @ManyToOne
     @JoinColumn(name="stkpd_doc")
-    int doc;
+    Stock_doc doc;
 
     @Column(name="stkpd_quantity")
     double quantity;
@@ -23,19 +24,19 @@ public class Stock_doc_table {
 
     @ManyToOne
     @JoinColumn(name="stkpd_portfolio")
-    int portfolio;
+    Portfolio portfolio;
 
     @ManyToOne
     @JoinColumn(name="stkpd_typeoperation")
-    int typeoperation;
+    Type_operation typeoperation;
 
     @ManyToOne
     @JoinColumn(name="stkpd_stock")
-    String stock;
+    Stock stock;
 
     @ManyToOne
     @JoinColumn(name="stkpd_series")
-    int series;
+    Balance_series series;
 
     public Stock_doc_table(){
 
