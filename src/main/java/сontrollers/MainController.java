@@ -4,6 +4,8 @@ import dao.impl.StockDAOImpl;
 import entity.Stock;
 import services.StockService;
 
+import java.util.List;
+
 public class MainController {
 
     public MainController(){
@@ -24,6 +26,10 @@ public class MainController {
         Stock stock = new Stock();
         stock = stockService.searchStockByTicker("SBER");
         System.out.println(stock.toString());
+        List<Stock> stoks = stockService.getAllStocks();
+        for (Stock stk:stoks) {
+            System.out.println(stk.toString());
+        }
 
         /*StockDAOImpl t = new StockDAOImpl();
         t.readStock();*/

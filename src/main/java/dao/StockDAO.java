@@ -2,6 +2,8 @@ package dao;
 
 import entity.Stock;
 
+import java.util.List;
+
 public interface StockDAO  {
 
     boolean createRecord();
@@ -10,5 +12,5 @@ public interface StockDAO  {
 
     Stock searchRecordByKey(String ticker);
 
-    void getAll();
+    List<Stock> getAllTable();
 }

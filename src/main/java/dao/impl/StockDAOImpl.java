@@ -5,17 +5,12 @@ import entity.Stock;
 import org.hibernate.Session;
 import utils.HibernateSessionFactoryUtil;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class StockDAOImpl implements StockDAO {
 
-    /*public void findStockByTicker(String tic) {
-       // System.out.println(HibernateSessionFactoryUtil.getSessionFactory().openSession().get(Stock.class, tic));
-    }
-
-    public void readStock() {
-        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
-        System.out.println("Тест акции");
-        //List<Stock> stk = new ArrayList<Stock>();
-    }*/
+    public StockDAOImpl(){}
 
     @Override
     public boolean createRecord() {
@@ -29,19 +24,20 @@ public class StockDAOImpl implements StockDAO {
 
     @Override
     public Stock searchRecordByKey(String ticker) {
-        Session ses = HibernateSessionFactoryUtil.getSessionFactory().openSession();
-
-        // HQL (Hibernate Query Language)
-        /*String sql = "From " + Stock.class.getSimpleName() + " Where ticker = '" + ticker + "'";
-        System.out.println("sql = " + sql);
-
-        Stock stock = (Stock) ses.createQuery(sql).getSingleResult();*/
-        return ses.get(Stock.class, ticker);
-        //return stock;
+        return getSession().get(Stock.class, ticker);
     }
 
     @Override
-    public void getAll() {
+    public List<Stock> getAllTable() {
+        Session session = getSession();
+        session.beginTransaction();
+        List<Stock> stocks = new ArrayList<Stock>
+                (session.createQuery("from " + Stock.class.getSimpleName()).list());
+        session.getTransaction().commit();
+        return stocks;
+    }
 
+    private Session getSession() {
+        return HibernateSessionFactoryUtil.getSessionFactory().openSession();
     }
 }
