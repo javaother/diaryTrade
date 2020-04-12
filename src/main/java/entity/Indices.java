@@ -19,7 +19,7 @@ public class Indices {
     @Column(name="idx_date")
     Date date_idx;
 
-    @OneToMany (mappedBy = "index")
+    @OneToMany (mappedBy = "index", cascade = CascadeType.ALL)
     List<Indices_price> prices = new ArrayList<Indices_price>();
 
     public Indices(){

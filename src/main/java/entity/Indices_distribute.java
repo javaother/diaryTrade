@@ -11,6 +11,7 @@ import java.util.List;
 public class Indices_distribute {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="idxdi_id")
     int id;
 
@@ -20,7 +21,7 @@ public class Indices_distribute {
     @Column(name="idxdi_number")
     String number;
 
-    @OneToMany (mappedBy = "docid")
+    @OneToMany (mappedBy = "docid", cascade = CascadeType.ALL)
     List<Indices_price> prices = new ArrayList<Indices_price>();
 
     public Indices_distribute(){

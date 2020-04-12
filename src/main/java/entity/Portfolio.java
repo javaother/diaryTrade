@@ -9,6 +9,7 @@ import java.util.List;
 public class Portfolio {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_portfolio")
     int id;
 
@@ -18,10 +19,10 @@ public class Portfolio {
     @Column(name="comment_portfolio")
     String comment;
 
-    @OneToMany (mappedBy = "portfolio")
+    @OneToMany (mappedBy = "portfolio", cascade = CascadeType.ALL)
     List<Balance_series> series = new ArrayList<Balance_series>();
 
-    @OneToMany (mappedBy = "portfolio")
+    @OneToMany (mappedBy = "portfolio", cascade = CascadeType.ALL)
     List<Stock_doc_table> doc_table = new ArrayList<Stock_doc_table>();
 
     public Portfolio(){

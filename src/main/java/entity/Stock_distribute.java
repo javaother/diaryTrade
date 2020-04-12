@@ -10,6 +10,7 @@ import java.util.List;
 public class Stock_distribute {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="stkdi_id")
     int id;
 
@@ -19,7 +20,7 @@ public class Stock_distribute {
     @Column(name="stkdi_number")
     String number;
 
-    @OneToMany (mappedBy = "docid")
+    @OneToMany (mappedBy = "docid", cascade = CascadeType.ALL)
     List<Stock_price> prices = new ArrayList<Stock_price>();
 
     public Stock_distribute(){

@@ -9,6 +9,7 @@ import java.util.List;
 public class Indicator{
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_indicator")
     int id;
 
@@ -21,7 +22,7 @@ public class Indicator{
     @Column(name="purpose_indicator")
     String purpose;
 
-    @OneToMany (mappedBy = "id_indicator")
+    @OneToMany (mappedBy = "id_indicator", cascade = CascadeType.ALL)
     List<Indicator_data> indicator_data = new ArrayList<Indicator_data>();
 
     public Indicator(){

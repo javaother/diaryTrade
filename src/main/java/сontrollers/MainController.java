@@ -69,6 +69,9 @@ public class MainController implements Initializable {
 
     //initialize
     public void initializeStockTable() {
+        //Растягивать колонки по ширине талицы
+        stockTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+
         ObservableList<Stock> stockList = FXCollections.observableArrayList();
 
         //stockList.addAll(new Person("Alex", "Alex@gmail.com"), new Person("Bob", "Bob@gmail.com"));
