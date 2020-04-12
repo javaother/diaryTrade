@@ -34,7 +34,21 @@ public class MainController implements Initializable {
     }
 
     public void openDirStock() {
-        System.out.println("Button Stock");
+        //System.out.println("Button Stock");
+        StockService stockService = new StockService();
+        /*//create
+        Stock stk = new Stock("std", "stud", new Date());
+        System.out.println(stockService.createStock(stk));*/
+        //search by Ticker
+        Stock stock = new Stock();
+        stock = stockService.searchStockByTicker("std");
+        /*//update
+        stock.setName("stud2");
+        System.out.println(stockService.updateStock(stock));*/
+        //delete
+       // System.out.println(stockService.deleteStock(stock));
+
+
     }
 
     public void operQUIK() {
@@ -78,13 +92,12 @@ public class MainController implements Initializable {
 
     private List getAllStocks() {
         StockService stockService = new StockService();
-        Stock stock = new Stock();
-        //stock = stockService.searchStockByTicker("SBER");
+
         //System.out.println(stock.toString());
-        List<Stock> stocks = stockService.getAllStocks();
+        /*List<Stock> stocks = stockService.getAllStocks();
         for (Stock stk : stocks) {
             System.out.println(stk.toString());
-        }
+        }*/
         return stockService.getAllStocks();
     }
 }

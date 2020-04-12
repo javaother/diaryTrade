@@ -42,6 +42,19 @@ public class Stock implements Serializable{
 
     public Stock() {/*constructor*/}
 
+
+    public Stock(String ticker, String name, Date dateCreate){
+        this.ticker = ticker;
+        this.name = name;
+        this.dateCreate = dateCreate;
+        this.sector = null;
+    }
+
+    //setters
+    public void setName(String name) {
+        this.name = name;
+    }
+
     //getters
     public String getTicker() {
         return ticker;

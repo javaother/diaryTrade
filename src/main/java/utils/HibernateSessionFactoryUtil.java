@@ -2,6 +2,7 @@ package utils;
 
 
 import entity.*;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -52,6 +53,18 @@ public class HibernateSessionFactoryUtil {
         conf.addAnnotatedClass(Type_operation.class);
 
         return conf;
+    }
+
+    public static Session getSession(){
+        /*Session session;
+        if (HibernateSessionFactoryUtil.getSessionFactory().isOpen()) {
+            session = HibernateSessionFactoryUtil.getSessionFactory().getCurrentSession();
+        }else {
+            session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+        }
+        return session;*/
+
+        return HibernateSessionFactoryUtil.getSessionFactory().openSession();
     }
 
 }
