@@ -3,6 +3,7 @@ package services;
 import dao.impl.StockDAOImpl;
 import entity.Stock;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class StockService {

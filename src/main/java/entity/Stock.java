@@ -41,6 +41,22 @@ public class Stock implements Serializable{
 
     }
 
+    public String getTicker() {
+        return ticker;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Date getDateCreate() {
+        return dateCreate;
+    }
+
+    public Economic_sector getSector() {
+        return sector;
+    }
+
     public String getStock() {
         return ticker + " - " + name;
     }
