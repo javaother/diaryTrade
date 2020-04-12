@@ -1,25 +1,40 @@
 package сontrollers;
 
-import dao.StockDAOImpl;
+import entity.Economic_sector;
+import entity.Stock;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import services.StockService;
 
-public class MainController {
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.ResourceBundle;
 
-    public MainController(){
+public class MainController implements Initializable {
 
+    @FXML
+    TableView<Stock> stockTable;
+
+    public MainController(){/*constructor*/  }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        initializeStockTable();
     }
-
-    /*public void closeApp() {
-        System.out.println("Button exit!");
-
-    }*/
 
     public void openDirIndeces() {
         System.out.println("Button open INDICES");
     }
 
     public void openDirStock() {
-        StockDAOImpl t = new StockDAOImpl();
-        t.readStock();
+        System.out.println("Button Stock");
     }
 
     public void operQUIK() {
@@ -36,5 +51,40 @@ public class MainController {
 
     public void reportPriceChange() {
         System.out.println("Button REPORT PRICE CHANGE");
+    }
+
+    //initialize
+    public void initializeStockTable() {
+        ObservableList<Stock> stockList = FXCollections.observableArrayList();
+
+        //stockList.addAll(new Person("Alex", "Alex@gmail.com"), new Person("Bob", "Bob@gmail.com"));
+        stockList.addAll(getAllStocks());
+
+        TableColumn<Stock, String> tcTicker = new TableColumn<>("Тикер");
+        tcTicker.setCellValueFactory(new PropertyValueFactory<Stock, String>("ticker"));
+
+        TableColumn<Stock, String> tcName = new TableColumn<>("Наименование");
+        tcName.setCellValueFactory(new PropertyValueFactory<Stock, String>("name"));
+
+        TableColumn<Stock, Economic_sector> tcSector = new TableColumn<>("Сектор");
+        tcSector.setCellValueFactory(new PropertyValueFactory<Stock, Economic_sector>("sector"));
+
+        TableColumn<Stock, Date> tcDate = new TableColumn<>("Дата");
+        tcDate.setCellValueFactory(new PropertyValueFactory<Stock, Date>("dateCreate"));
+
+        stockTable.getColumns().addAll(tcTicker, tcName, tcSector, tcDate);
+        stockTable.setItems(stockList);
+    }
+
+    private List getAllStocks() {
+        StockService stockService = new StockService();
+        Stock stock = new Stock();
+        //stock = stockService.searchStockByTicker("SBER");
+        //System.out.println(stock.toString());
+        List<Stock> stocks = stockService.getAllStocks();
+        for (Stock stk : stocks) {
+            System.out.println(stk.toString());
+        }
+        return stockService.getAllStocks();
     }
 }

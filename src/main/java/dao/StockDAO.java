@@ -1,7 +1,16 @@
 package dao;
 
-interface StockDAO {
-    public void readStock();
+import entity.Stock;
 
-    public void findStockByTicker(String tic);
+import java.util.List;
+
+public interface StockDAO  {
+
+    boolean createRecord();
+
+    boolean deleteRecord();
+
+    Stock searchRecordByKey(String ticker);
+
+    List<Stock> getAllTable();
 }
