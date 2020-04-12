@@ -28,16 +28,16 @@ public class Stock implements Serializable{
     @JoinColumn(name = "stk_esid")
     private Economic_sector sector;
 
-    @OneToMany (mappedBy = "stock")
+    @OneToMany (mappedBy = "stock", cascade = CascadeType.ALL )
     private List<Stock_doc_table> doc_tables = new ArrayList<Stock_doc_table>();
 
-    @OneToMany (mappedBy = "stock")
+    @OneToMany (mappedBy = "stock" , cascade = CascadeType.ALL)
     private List<Stock_divident> stock_dividents = new ArrayList<Stock_divident>();
 
-    @OneToMany (mappedBy = "stock")
+    @OneToMany (mappedBy = "stock", cascade = CascadeType.ALL)
     private List<Balance_series> series = new ArrayList<Balance_series>();
 
-    @OneToMany (mappedBy = "stock")
+    @OneToMany (mappedBy = "stock", cascade = CascadeType.ALL)
     private List<Stock_price> prices = new ArrayList<Stock_price>();
 
     public Stock() {/*constructor*/}

@@ -9,6 +9,7 @@ import java.util.List;
 public class Balance_series {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="ser_id")
     int id;
 
@@ -31,7 +32,7 @@ public class Balance_series {
     @JoinColumn(name="ser_portfolio")
    Portfolio portfolio;
 
-    @OneToMany (mappedBy = "series")
+    @OneToMany (mappedBy = "series", cascade = CascadeType.ALL)
     List<Stock_doc_table> doc_tables = new ArrayList<Stock_doc_table>();
 
     public Balance_series(){

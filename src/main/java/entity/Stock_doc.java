@@ -10,6 +10,7 @@ import java.util.List;
 public class Stock_doc {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="docs_id")
     int id;
 
@@ -26,10 +27,10 @@ public class Stock_doc {
     @JoinColumn(name="docs_move")
     Type_move move;
 
-    @OneToMany (mappedBy = "doc")
+    @OneToMany (mappedBy = "doc", cascade = CascadeType.ALL)
     List<Stock_doc_table> doc_tables = new ArrayList<Stock_doc_table>();
 
-    @OneToMany (mappedBy = "doc")
+    @OneToMany (mappedBy = "doc", cascade = CascadeType.ALL)
     List<Balance_series> series = new ArrayList<Balance_series>();
 
     public Stock_doc(){

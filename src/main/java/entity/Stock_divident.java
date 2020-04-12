@@ -7,6 +7,7 @@ import javax.persistence.*;
 public class Stock_divident {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="divs_id")
     int id;
 
