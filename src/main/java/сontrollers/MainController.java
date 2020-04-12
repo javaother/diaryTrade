@@ -34,14 +34,14 @@ public class MainController implements Initializable {
     }
 
     public void openDirStock() {
-        //System.out.println("Button Stock");
-        StockService stockService = new StockService();
+        System.out.println("Button Stock");
+        //StockService stockService = new StockService();
         /*//create
         Stock stk = new Stock("std", "stud", new Date());
         System.out.println(stockService.createStock(stk));*/
-        //search by Ticker
+        /*//search by Ticker
         Stock stock = new Stock();
-        stock = stockService.searchStockByTicker("std");
+        stock = stockService.searchStockByTicker("std");*/
         /*//update
         stock.setName("stud2");
         System.out.println(stockService.updateStock(stock));*/
