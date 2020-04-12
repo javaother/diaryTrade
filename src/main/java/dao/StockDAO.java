@@ -6,9 +6,11 @@ import java.util.List;
 
 public interface StockDAO  {
 
-    boolean createRecord();
+    boolean createRecord(Stock stock);
 
-    boolean deleteRecord();
+    boolean updateRecord(Stock stock);
+
+    boolean deleteRecord(Stock stock);
 
     Stock searchRecordByKey(String ticker);
 

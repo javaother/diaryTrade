@@ -1,7 +1,10 @@
 package entity;
 
+import utils.Utilites;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -37,10 +40,22 @@ public class Stock implements Serializable{
     @OneToMany (mappedBy = "stock")
     private List<Stock_price> prices = new ArrayList<Stock_price>();
 
-    public Stock() {
+    public Stock() {/*constructor*/}
 
+
+    public Stock(String ticker, String name, Date dateCreate){
+        this.ticker = ticker;
+        this.name = name;
+        this.dateCreate = dateCreate;
+        this.sector = null;
     }
 
+    //setters
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    //getters
     public String getTicker() {
         return ticker;
     }
@@ -57,17 +72,16 @@ public class Stock implements Serializable{
         return sector;
     }
 
-    public String getStock() {
+    /*public String getStock() {
         return ticker + " - " + name;
-    }
+    }*/
 
     @Override
     public String toString() {
-        return "Stock{" +
-                "ticker=" + ticker +
-                ", sector=" + sector +
-                ", name='" + name + '\'' +
-                ", dateCreate=" + dateCreate +
-                '}';
+        return //"Stock{" +
+                ticker +
+               // ", sector=" + sector +
+                " - " + name +
+                "(" + Utilites.formatDateWithoutTime(dateCreate) + ")";
     }
 }
